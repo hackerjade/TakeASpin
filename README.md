@@ -1,24 +1,21 @@
-# Flux-capacitr
+# take-a-spin
 
-[Heroku link][heroku]
+[take-a-spin- live link][heroku]
 
 [heroku]: http://www.take-a-spin.com
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+take-a-spin is a clone of getAround build on Rails and Backbone. Users can:
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Search for bikes by pick-up and return dates
+- [ ] Search for bikes by location
+- [ ] Create trips (rent bikes)
+- [ ] View bikes
+- [ ] List bikes for rent
+- [ ] Filter search by price
+- [ ] Filter search by features (rack, type, size)
 
 ## Design Docs
 * [View Wireframes][views]
@@ -29,63 +26,45 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+### Phase 1: User Authentication (~1/2 a day)
+Implement user authentication in Rails using bcrypt. Users will be able to sign up, sign in and sign out.  The app will be pushed to Heroku and functional before moving to phase II.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: Searching Bikes (~3 days)
+Add API routes to format bikes and rental data as JSON.  Add Backbone models and collections to fetch JSON data.  Integrate GoogleMaps for interactive searches.  Users will be able to search for bikes by dates and location within a single Backbone app. 
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: Renting and Displaying Bikes (~2 day)
+Add Bike Show and Trip Show Backbone composite views containing Bike Rental Form and Bike Rental Item subviews, respectively.  Users will be able to view bikes and create or cancel  'trips'.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: Listing Bikes for Rent (~1-2 day)
+Integrate the third-party library, Filepicker, for file upload so users can add profile and bicycle images.  Users will be able to upload their bikes for rent and edit their bike on the Bike Show view.  
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Search Filters (~1 day)
+Add a filter button to the SearchShow Backbone view.  The filter button will toggle a FilterItem View on and off the page, as well as filter bikes in the search results.  Users will be able to filter searches based on bike size, price and features.
 
 [Details][phase-five]
 
-### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
+### Bonus Features 
+- [ ] Bicycle availability view
+- [ ] Add payment methods
+- [ ] Change bike index path to 'bike name'
+- [ ] User list many bikes for rent
+- [ ] How it works/About pages
 - [ ] Multiple sessions/session management
 - [ ] User avatars
-- [ ] Typeahead search bar
+
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
+
 
