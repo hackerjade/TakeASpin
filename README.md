@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: www.take-a-spin.com
+[heroku]: http://www.take-a-spin.com
 
 ## Minimum Viable Product
 Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
