@@ -1,6 +1,6 @@
 # take-a-spin
 
-[take-a-spin- live link][heroku]
+[take a spin!][heroku]
 
 [heroku]: http://www.take-a-spin.com
 
