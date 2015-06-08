@@ -23,4 +23,4 @@
 [blog-show]: ./wireframes/bike_show.png
 [post-show]: ./wireframes/trip_show.png
 [post-form]: ./wireframes/bike_form.png
-[search-results]: ./wireframes/search_results.png
+[search-results]: ./wireframes/search_show.png
