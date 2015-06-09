@@ -15,21 +15,15 @@
 |-------------|-----------|-----------------------|---------------------|---------|
 | id          | integer   | not null, primary key |                     |         |
 | owner_id    | integer   | not null, foreign key | references users    | indexed |
-| image_id    | integer   | not null, foreign key | references images   | indexed |
+| image       | bytea     | not null              |                     |         |
 | feature_id  | integer   | not null, foreign key | references features | indexed |
 | location    | string    | not null              |                     |         |
 | year        | string    | not null              |                     |         |
 | make        | string    | not null              |                     |         |
 | model       | string    | not null              |                     |         |
-| description | text      | not null              |                     |         |
+| description | text      |                       |                     |         |
 | day_rate    | integer   | not null              |                     |         |
 | hour_rate   | integer   | not null              |                     |         |
-
-## images
-| column name | data type | details               |
-|-------------|-----------|-----------------------|
-| id          | integer   | not null, primary key |
-| image       | bytea     | not null              |
 
 ## bike_rental_request
 | column name | data type | details               |         |
@@ -47,19 +41,11 @@
 | column name     | data type | details               |
 |-----------------|-----------|-----------------------|
 | id              | integer   | not null, primary key |
-| road_bike       | boolean   | not null              |
-| hybrid          | boolean   | not null              |
-| mountain_bike   | boolean   | not null              |
-| touring_bike    | boolean   | not null              |
-| cyclocross      | boolean   | not null              |
-| folding_bike    | boolean   | not null              |
-| recumbent       | boolean   | not null              |
-| tandum          | boolean   | not null              |
-| back_rack       | boolean   | not null              |
-| front_rack      | boolean   | not null              |
-| aerobars        | boolean   | not null              |
-| clipless_pedals | boolean   | not null              |
-| leather_saddle  | boolean   | not null              |
-
+| bike_type       | string    | not null              |
+| back_rack       | boolean   |                       |
+| front_rack      | boolean   |                       |
+| aerobars        | boolean   |                       |
+| clipless_pedals | boolean   |                       |
+| leather_saddle  | boolean   |                       |
 
 
