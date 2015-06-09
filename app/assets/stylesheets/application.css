@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-brand {
+  margin-left: 50px;
+}
+
+.fa-spinner {
+  margin-right: -6px;
+}
+
+.logo-font {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 17px;
+}
+
+.fa-circle:before {
+  content: "\f111";
+  font-size: 5px;
+  vertical-align: middle;
+}
+
+.navbar-nav {
+  color: #fff;
+  letter-spacing: .7px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+}
