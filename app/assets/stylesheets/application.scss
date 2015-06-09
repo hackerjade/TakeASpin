@@ -41,3 +41,29 @@
   font-size: 15px;
   text-decoration: none;
 }
+
+.sign-in-button {
+  background-color: #B849A3;
+  color: white;
+  border-color: #a74193;
+  border-radius: 10px;
+
+}
+
+.sign-in-button:hover {
+  background-color: #c66eb6;
+  color: white;
+}
+
+.navbar-default .dropdown-menu {
+  background-color: #f7f7f7;
+}
+
+.navbar-default .dropdown-menu li a{
+  color: #333;
+  background-color: #f7f7f7;
+}
+
+.navbar-default .dropdown-menu li a:hover{
+  background-color: #e9e9e9;
+}
