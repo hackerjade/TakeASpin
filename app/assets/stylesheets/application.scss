@@ -42,6 +42,33 @@
   text-decoration: none;
 }
 
+li.dropdown {
+  margin-right: -53px;
+  margin-left: 22px;
+}
+
+.navbar-default .dropdown-menu {
+  background-color: #f7f7f7;
+}
+
+.navbar-default .dropdown-menu li a{
+  color: #333;
+  background-color: #f7f7f7;
+  margin-top: -10px;
+}
+
+.dropdown-menu .divider {
+  margin: 5px;
+}
+
+.navbar-default .dropdown-menu li a:hover{
+  background-color: #e9e9e9;
+}
+
+div.sign-in-form {
+  margin-top: 9%;
+}
+
 .sign-in-button {
   background-color: #B849A3;
   color: white;
@@ -55,15 +82,14 @@
   color: white;
 }
 
-.navbar-default .dropdown-menu {
-  background-color: #f7f7f7;
+.sign-in {
+  font-size: 36px;
+  font-weight: 400;
+  color: white;
 }
 
-.navbar-default .dropdown-menu li a{
-  color: #333;
-  background-color: #f7f7f7;
-}
-
-.navbar-default .dropdown-menu li a:hover{
-  background-color: #e9e9e9;
+.sign-input{
+  -webkit-border-radius: 9px;
+  margin-bottom: 9px;
+  width: 262px;
 }

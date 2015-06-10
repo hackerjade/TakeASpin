@@ -1,20 +1,17 @@
 class CreateBikes < ActiveRecord::Migration
   def change
-    create_table :bikes do |t|
-      t.integer :owner_id, null: false
-      t.integer :feature_id, null: false
-      t.string :image_url, null: false
-      t.string :location, null: false
-      t.string :make, null: false
-      t.string :model, null: false
-      t.integer :year, null: false
-      t.text :description
-      t.integer :day_rate, null: false
-      t.integer :hour_rate, null: false
+    create_table :bike_rental_requests do |t|
+      t.integer :bike_id, null: false
+      t.integer :user_id, null: false
+      t.date :start_date, null: false
+      t.time :start_time, null: false
+      t.date :end_date, null: false
+      t.time :end_time, null: false
+      t.string :status, null: false
 
       t.timestamps
     end
 
-    add_index :bikes, [:owner_id, :feature_id]
+    add_index :bike_rental_requests, [:bike_id, :user_id]
   end
 end
