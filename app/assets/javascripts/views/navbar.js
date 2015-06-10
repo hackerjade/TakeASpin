@@ -7,7 +7,18 @@ window.TakeASpin.Views.NavView = Backbone.View.extend({
   },
 
   events: {
-    'click .dropdown-toggle': "dropMenu"
+    'click .dropdown-toggle': "dropMenu",
+    'click .log-out': "logOut"
+  },
+
+  logOut: function() {
+    $.ajax({
+      url: '/session',
+      type: 'DELETE',
+      success: function() {
+        window.location = "/";
+      },
+    });
   },
 
   dropMenu: function() {
@@ -15,7 +26,7 @@ window.TakeASpin.Views.NavView = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template();
+    var content = this.template({ user: window.currentUser});
     this.$el.html(content);
 
     return this;

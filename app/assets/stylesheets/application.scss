@@ -65,6 +65,19 @@ li.dropdown {
   background-color: #e9e9e9;
 }
 
+.navbar-nav>li>.dropdown-menu {
+  margin-top: 10px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+
+
+div#content {
+  margin-top: -21px;
+}
+
+
 div.sign-in-form {
   margin-top: 9%;
 }
@@ -92,4 +105,24 @@ div.sign-in-form {
   -webkit-border-radius: 9px;
   margin-bottom: 9px;
   width: 262px;
+}
+
+input.sign-input.name.form-control {
+  width: 130px;
+}
+
+.map-sidebar {
+  height: 100%;
+  width: 364px;
+  float: left;
+}
+
+.search-page, .map {
+  height: 100%
+}
+
+html, body, #content, .map-canvas {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }

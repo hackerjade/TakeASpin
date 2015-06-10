@@ -13,7 +13,7 @@ window.TakeASpin.Routers.Bikes = Backbone.Router.extend({
 
   index: function() {
     this.collection.fetch();
-    var view = new window.TakeASpin.Views.BikesIndex({
+    var view = new window.TakeASpin.Views.SearchShowView({
       collection: this.collection
     });
 
@@ -52,6 +52,7 @@ window.TakeASpin.Routers.Bikes = Backbone.Router.extend({
   _swapViews: function(view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
-    this.$rootEl.html(view.render().$el);
+    this.$rootEl.html(view.$el);
+    view.render();
   }
 });
