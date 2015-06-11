@@ -3,7 +3,7 @@
 <head>
 
   <% if Rails.env.production? %>
-    <% api_key = "ENV['google_map_api']" %>
+    <% api_key = ENV['google_map_api'] %>
   <% else %>
     <% api_key = '' %>
   <% end %>
