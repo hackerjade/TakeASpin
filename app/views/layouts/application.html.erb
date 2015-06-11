@@ -3,7 +3,7 @@
 <head>
 
   <% if Rails.env.production? %>
-    <% api_key = "key=AIzaSyAhNPMg4gbnPU06KcU2QfP1NBqrbsHU0zs" %>
+    <% api_key = "ENV['google_map_api']" %>
   <% else %>
     <% api_key = '' %>
   <% end %>
@@ -17,7 +17,7 @@
   <% if current_user %>
     <script type="text/javascript"> window.currentUser = "<%= current_user.fname %>"</script>
   <% end %>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?<%= api_key %>"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= api_key %>"></script>
 
   <title>TakeASpin</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
