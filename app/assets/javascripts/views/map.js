@@ -18,12 +18,14 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
       icon: '/assets/drop_pin.png'
     });
 
+
     window.google.maps.event.addListener(marker, 'click', function (event) {
       this.infoWindow && this.infoWindow.close();
       view.showMarkerInfo(event, location, marker);
     }.bind(this));
 
-    // this._markers[location.id] = marker;
+
+    this._markers[location.id] = marker;
   },
 
   attachMapListeners: function () {
@@ -35,20 +37,21 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
     this.infoWindow && this.infoWindow.close();
   },
   //
-  // search: function () {
-  //   var mapBounds = this._map.getBounds();
-  //   var ne = mapBounds.getNorthEast();
-  //   var sw = mapBounds.getSouthWest();
-  //
-  //   var filterData = {
-  //     lat: [sw.lat(), ne.lat()],
-  //     lng: [sw.lng(), ne.lng()]
-  //   };
-  //
-  //   // this.collection.fetch({
-  //   //   data: { filter_data: filterData }
-  //   // });
-  // },
+  search: function () {
+    var mapBounds = this._map.getBounds();
+    var ne = mapBounds.getNorthEast();
+    var sw = mapBounds.getSouthWest();
+
+    var filterData = {
+      lat: [sw.lat(), ne.lat()],
+      lng: [sw.lng(), ne.lng()]
+    };
+
+    console.log(filterData.lat)
+    // this.collection.fetch({
+    //   data: { filter_data: filterData }
+    // });
+  },
 
   removeMarker: function (location) {
     var marker = this._markers[location.id];
@@ -62,14 +65,18 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
        content: infoView.render().$el.html(),
        maxWidth: 320
      });
+
+     this._removeCloseButton();
+
+     this.infoWindow.open(this._map, marker);
+   },
+
+   _removeCloseButton: function() {
      window.google.maps.event.addListener(this.infoWindow, 'domready', function(){
        var content = $('.gm-style-iw');
        content.next("div").hide();
        content.width(375);
      });
-
-
-     this.infoWindow.open(this._map, marker);
    },
 
   initMap: function() {
@@ -81,6 +88,23 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
     this._map = new window.google.maps.Map(this.el, mapOptions);
     this.collection.each(this.addMarker.bind(this));
     this.attachMapListeners();
+  },
+
+  changePos: function(loc) {
+    this.pointer && this.pointer.setMap(null);
+    this._map.setCenter(loc);
+    this.pointer = new window.google.maps.Marker({
+            map: this._map,
+            position: loc,
+            icon: {
+              path: window.google.maps.SymbolPath.CIRCLE,
+              scale: 10,
+              fillColor: '#5DADE2',
+              fillOpacity: 0.5,
+              strokeColor: '#1B7BB9',
+              strokeWeight: 2
+            }
+        });
   }
 
 });

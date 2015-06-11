@@ -2,7 +2,7 @@ window.TakeASpin.Views.SearchDate = Backbone.View.extend({
   template: JST['search_date'],
 
   className: 'date',
-  
+
   initialize: function(collection, options) {
     this.label = options.label;
   },

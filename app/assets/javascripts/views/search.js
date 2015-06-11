@@ -7,40 +7,41 @@ window.TakeASpin.Views.SearchShowView = Backbone.CompositeView.extend({
     this.mapView = new window.TakeASpin.Views.MapShow({
       collection: this.collection
     });
+    this.mapView.initMap();
+
 
     this.listingsIndex = new window.TakeASpin.Views.listingsIndex({
       collection: this.collection
     });
 
-    this.listenTo(this.collection, 'sync add remove', this.render)
+    this.listenTo(this.collection, 'sync add remove', this.render);
   },
 
   events: {
-    'change .search-input.location-input': 'fetchCollection',
-   // 'keyup .searchbar input': 'fetchCollection'
+    'change .search-input.location-input': 'fetchBikes',
+   // 'keyup .searchbar input': 'fetchBikes'
   },
 
-  fetchCollection: function(event){
+  fetchBikes: function(event){
   //  event.preventDefault();
-   //
+   var that = this;
    var filter = this.$('.search-input.location-input').val();
-   var geocoder = new google.maps.Geocoder();
+   var geocoder = new window.google.maps.Geocoder();
    geocoder.geocode(
         {'address': filter},
         function(results, status) {
-          debugger;
-            if (status == google.maps.GeocoderStatus.OK) {
+            if (status == window.google.maps.GeocoderStatus.OK) {
                 var loc = results[0].geometry.location;
-                // use loc.lat(), loc.lng()
+                that.mapView.changePos(loc);
             }
             else {
                 alert("Not found: " + status);
             }
         }
     );
-  //  this.collection.fetch({ data: { search: filter } });
-  //  this.filter = filter;
-  //  this.$('.searchbar input').focus();
+   this.collection.fetch({ data: { search: filter } });
+   this.filter = filter;
+   this.$('.searchbar input').focus();
   },
 
   render: function() {
@@ -49,7 +50,6 @@ window.TakeASpin.Views.SearchShowView = Backbone.CompositeView.extend({
     this.$('.map-sidebar').html(this.listingsIndex.$el);
     this.$('.map').html(this.mapView.$el);
     this.listingsIndex.render();
-    this.mapView.initMap();
     return this;
   }
 });

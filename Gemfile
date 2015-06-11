@@ -11,6 +11,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
 gem 'ejs'
+gem 'momentjs-rails', '>= 2.8.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 
 group :development, :test do
   gem 'better_errors'

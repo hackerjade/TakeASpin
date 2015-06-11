@@ -1,6 +1,6 @@
 window.TakeASpin.Collections.Bikes = Backbone.Collection.extend({
   model: window.TakeASpin.Models.Bike,
-  url: '/api/bikes',
+  url: '/api/bikes/search',
 
   getOrFetch: function(id) {
     var bike = this.get(id);
