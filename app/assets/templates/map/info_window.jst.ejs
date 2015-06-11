@@ -1,12 +1,12 @@
-<img class="bike-listing" src=<%= image %>>
-<div class="bike-details">
-  <div class="bike-title">
+<img class="bike-info" src=<%= bike.get('image_url') %>>
+<div class="bike-info">
+  <div class="bike-info-title">
     <%= bike.get('year') %>
     <%= bike.get('make') %>
     <%= bike.get('model') %>
   </div>
 
-  <div class="bike-rates">
+  <div class="bike-info-rates">
      $<%= bike.get('day_rate') %>/hour
      <br>
      $<%= bike.get('hour_rate') %>/day

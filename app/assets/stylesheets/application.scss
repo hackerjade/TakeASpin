@@ -200,7 +200,7 @@ label.search-dates {
   margin-left: 25px;
 }
 
-img {
+img.bike-listing {
   vertical-align: middle;
   width: 45%;
 }
@@ -235,4 +235,20 @@ img {
   display: flex;
   position: absolute;
   bottom: -79px;
+}
+
+/* info window */
+img.bike-info {
+  width: 100%
+}
+
+.bike-info-title {
+  font-weight: bold;
+  color: #666666;
+  font-size: 18px;
+}
+
+.bike-info-rates {
+  color: #B849A3;
+  font-size: 13px;
 }

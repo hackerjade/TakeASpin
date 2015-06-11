@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150609233803) do
+ActiveRecord::Schema.define(version: 20150611031239) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20150609233803) do
     t.integer  "owner_id",    null: false
     t.integer  "feature_id",  null: false
     t.string   "image_url",   null: false
-    t.string   "location",    null: false
     t.string   "make",        null: false
     t.string   "model",       null: false
     t.integer  "year",        null: false
@@ -29,6 +28,8 @@ ActiveRecord::Schema.define(version: 20150609233803) do
     t.integer  "hour_rate",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "lat",         null: false
+    t.float    "lng",         null: false
   end
 
   add_index "bikes", ["owner_id", "feature_id"], name: "index_bikes_on_owner_id_and_feature_id", using: :btree
