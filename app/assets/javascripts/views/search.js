@@ -11,13 +11,16 @@ window.TakeASpin.Views.SearchShowView = Backbone.CompositeView.extend({
     this.listingsIndex = new window.TakeASpin.Views.listingsIndex({
       collection: this.collection
     });
+
+    this.listenTo(this.collection, 'sync add remove', this.render)
   },
 
   render: function() {
     var content = this.template();
     this.$el.html(content);
-    this.$('.sidebar').html(this.listingsIndex.render().$el);
+    this.$('.map-sidebar').html(this.listingsIndex.$el);
     this.$('.map').html(this.mapView.$el);
+    this.listingsIndex.render();
     this.mapView.initMap();
     return this;
   }

@@ -14,6 +14,8 @@
  *= require_self
  */
 
+
+/* nav bar */
 .navbar-brand {
   margin-left: 50px;
 }
@@ -58,7 +60,8 @@ li.dropdown {
 }
 
 .dropdown-menu .divider {
-  margin: 5px;
+  margin: 0;
+  height:11px;
 }
 
 .navbar-default .dropdown-menu li a:hover{
@@ -73,13 +76,16 @@ li.dropdown {
 
 
 
+/* page */
 div#content {
   margin-top: -21px;
 }
 
 
-div.sign-in-form {
+/* sign in */
+div.search-form {
   margin-top: 9%;
+  width: 100%;
 }
 
 .sign-in-button {
@@ -87,7 +93,6 @@ div.sign-in-form {
   color: white;
   border-color: #a74193;
   border-radius: 10px;
-
 }
 
 .sign-in-button:hover {
@@ -101,7 +106,7 @@ div.sign-in-form {
   color: white;
 }
 
-.sign-input{
+.sign-input, .search-input{
   -webkit-border-radius: 9px;
   margin-bottom: 9px;
   width: 262px;
@@ -111,18 +116,123 @@ input.sign-input.name.form-control {
   width: 130px;
 }
 
+
+/* search view */
+
+/* map */
 .map-sidebar {
   height: 100%;
   width: 364px;
   float: left;
 }
 
-.search-page, .map {
-  height: 100%
-}
-
 html, body, #content, .map-canvas {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+/* search filter */
+.search-page, .map {
+  height: 100%
+}
+
+.fa-map-marker:before {
+  content: "\f041";
+}
+
+.locate-icon {
+  display: none;
+  position: absolute;
+  top: 7px;
+  left: 5px;
+  width: 15px;
+  height: 25px;
+  text-align: right;
+  line-height: 25px;
+  font-size: 18px;
+  color: #d5d5d5;
+}
+
+input.search-input.form-control.location-input {
+  margin-top: -24px;
+  width: 100%;
+  -webkit-border-radius: 3px;
+}
+
+label.search-dates {
+  margin-left: 0px;
+  font-weight: bolder;
+  color: #666;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+}
+
+.time.form-control {
+  display: inline-block;
+  width: 76px;
+  height: 31px;
+  margin-right: 5px;
+  -webkit-border-radius: 3px;
+  vertical-align: middle;
+  color: #BFBFB9;
+}
+
+.form-group.dates {
+  display: flex;
+  margin-left: 17px;
+}
+
+.search-filter {
+  background-color: #F7F7F7;
+}
+
+.bike-list {
+  background-color: #FFFFFF;
+  margin-left: 10px;
+}
+
+.date {
+  display: inline-block;
+}
+
+.date:nth-child(2) {
+  margin-left: 25px;
+}
+
+img {
+  vertical-align: middle;
+  width: 45%;
+}
+
+.bike-listing {
+  margin: 7px;
+}
+
+.bike-list, .search-filter {
+  display: inline-block;
+  width: 100%;
+  padding: 0;
+}
+
+.bike-details {
+  display: inline-block;
+  font-size: 14px;
+  vertical-align: 41px;
+  height: 100%;
+  position: relative;
+  margin-left: 6px;
+}
+
+.bike-title {
+  font-weight: bold;
+  color: #666666;
+}
+
+.bike-rates {
+  color: #B849A3;
+  font-size: 13px;
+  display: flex;
+  position: absolute;
+  bottom: -79px;
 }
