@@ -40,7 +40,7 @@ window.TakeASpin.Views.SearchShowView = Backbone.CompositeView.extend({
 
 
     this.collection.fetch({
-      data: { filter_data: {filter} }
+      data: { filter_data: { address : filter } }
     });
    this.filter = filter;
    this.$('.searchbar input').focus();
