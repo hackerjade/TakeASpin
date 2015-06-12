@@ -15,7 +15,7 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
     var marker = new window.google.maps.Marker({
       position: { lat: location.get('lat'), lng: location.get('lng') },
       map: this._map,
-      icon: '/assets/drop_pin.png'
+      icon: "<%= asset_path('drop_pin.png') %>"
     });
 
 
