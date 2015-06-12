@@ -5,16 +5,9 @@ window.TakeASpin.Views.SearchDate = Backbone.View.extend({
 
   events: {
     'dp.hide .time': 'blur',
-    'dp.show .time': 'disableAutofill',
-    'dp.change .time': 'saveDates',
+    'dp.hide .time, .date': 'saveDates',
     'dp.change #pickup-date': 'modReturnDate',
     'dp.change #return-date': 'modPickupDate',
-  },
-
-  disableAutofill: function(event) {
-    alert('here')
-    event.preventDefault();
-    $(event.currentTarget).clear();
   },
 
   modReturnDate: function(event) {
@@ -32,13 +25,14 @@ window.TakeASpin.Views.SearchDate = Backbone.View.extend({
   },
 
   saveDates: function(event) {
-    event.preventDefault();
     this.pickupDate = $('#pickup-date').val();
     this.pickupTime = $('#pickup-time').val();
     this.returnDate = $('#return-date').val();
     this.returnTime = $('#return-time').val();
-    // console.log(this.pickupDate, this.pickupTime, this.returnDate, this.returnTime);
-    if (this.pickupDate && this.returnDate && this.pickupTime && this.returnTime) { alert('ok!') };
+    // console.log(this.pickupDate, this.returnDate, this.pickupTime, this.returnTime);
+    // if (this.pickupDate && this.returnDate && this.pickupTime && this.returnTime) {
+    //   this.fetchBikes(event)
+    // }
   },
 
   blur: function(event) {

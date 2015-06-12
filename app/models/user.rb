@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many :bikes, foreign_key: :owner_id
+  has_many :rental_request, class_name: 'BikeRentalRequest'
 
   after_initialize :ensure_session_token
 

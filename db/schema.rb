@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611031239) do
+ActiveRecord::Schema.define(version: 20150612203149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bike_rental_requests", force: :cascade do |t|
+    t.integer  "bike_id",    null: false
+    t.integer  "user_id",    null: false
+    t.date     "start_date", null: false
+    t.time     "start_time", null: false
+    t.date     "end_date",   null: false
+    t.time     "end_time",   null: false
+    t.string   "status",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bike_rental_requests", ["bike_id", "user_id"], name: "index_bike_rental_requests_on_bike_id_and_user_id", using: :btree
 
   create_table "bikes", force: :cascade do |t|
     t.integer  "owner_id",    null: false

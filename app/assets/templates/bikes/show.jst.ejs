@@ -1,3 +1,36 @@
-<h1>Showing!</h1>
+<div class="row">
+  <section class="col-md-8 show-box">
+    <h1 class="bike-show-title"><%= bike.get('year') %>
+    <%= bike.get('make') %>
+    <%= bike.get('model') %></h1>
 
-  <li><%= bike.get('year') %></li>
+    <img src=<%= image %>>
+    <br>
+      <div class="bike-list-bottom-divider"></div>
+      <li><%= bike.get('year') %></li>
+  </section>
+
+
+<aside class="col-md-2 rent-box">
+  <div class="pricing">
+    <div class="per-hour">
+      <header class=rent-for-label>Rent this bike for:</header>
+      <div class="per-price big-price">$<%= bike.get('hour_rate') %></div>
+       <div class="per-time">per hour</div>
+    </div>
+
+     <div class="per-other">
+       <div class="daily-price">
+         <div class="per-price">$<%= bike.get('day_rate') %></div>
+         <div class="per-time">per day</div>
+       </div>
+       <div class="weekly-price">
+         <div class="per-price">$<%= bike.get('day_rate') * 7%></div>
+         <div class="per-time">per week</div>
+       </div>
+     </div>
+
+  </div>
+</aside>
+
+</div>

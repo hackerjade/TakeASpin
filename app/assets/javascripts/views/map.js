@@ -36,7 +36,7 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
   closeInfoWindow: function() {
     this.infoWindow && this.infoWindow.close();
   },
-  //
+
   search: function () {
     var mapBounds = this._map.getBounds();
     var ne = mapBounds.getNorthEast();

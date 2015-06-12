@@ -1,15 +1,17 @@
-<img class="bike-info" src=<%= bike.get('image_url') %>>
-<div class="bike-info">
-  <div class="bike-info-title">
-    <%= bike.get('year') %>
-    <%= bike.get('make') %>
-    <%= bike.get('model') %>
-  </div>
+<a class="bike-info-link" href="#bikes/1">
+  <img class="bike-info" src=<%= bike.get('image_url') %>>
+  <div class="bike-info">
+    <div class="bike-info-title">
+      <%= bike.get('year') %>
+      <%= bike.get('make') %>
+      <%= bike.get('model') %>
+    </div>
 
-  <div class="bike-info-rates">
-     $<%= bike.get('day_rate') %>/hour
-     <br>
-     $<%= bike.get('hour_rate') %>/day
-  </div>
+    <div class="bike-info-rates">
+       $<%= bike.get('day_rate') %>/hour
+       <br>
+       $<%= bike.get('hour_rate') %>/day
+    </div>
 
-  </div>
+    </div>
+</a>

@@ -138,6 +138,10 @@ html, body, #content, .map-canvas {
   padding: 0;
 }
 
+a.bike-info-link:hover, a.bike-info-link:focus {
+  text-decoration: none;
+}
+
 /* search filter */
 .search-page, .map {
   height: 100%
@@ -328,4 +332,71 @@ img.bike-info {
 
 div.ui-datepicker{
  font-size:10px;
+}
+
+/* bike show */
+.bike-show {
+  margin: 60px 0px 0px 125px;
+}
+
+.bike-show-title {
+  margin-bottom: 21px;
+  margin-top: -7px;
+}
+
+section.col-md-8.show-box {
+  padding-left: 85px;
+}
+
+aside.col-md-2.rent-box {
+  border: 1px solid #C3C3C3;
+  padding: 30px;
+  width: 300px;
+  height: 300px;
+}
+
+.rent-box {
+  font-size: 14px;
+  font-weight: 400;
+  color: gray;
+  letter-spacing: 0.02em;
+  line-height: 22px;
+}
+
+.rent-for-label {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: gray;
+  letter-spacing: 0.02em;
+  line-height: 22px;
+}
+
+.per-price.big-price {
+  font-size: 38px;
+  line-height: 44px;
+  text-align: right;
+  position: relative;
+  right: 185px;
+  font-weight: 400;
+}
+
+.per-price {
+  color: #B849A3;
+  font-weight: 100;
+  font-size: 20px;
+}
+
+.per-hour {
+  position: relative;
+}
+
+.per-other {
+  position: absolute;
+  right: 75px;
+  top: 60px;
+}
+
+.daily-price, .weekly-price {
+  display: inline-flex;
 }

@@ -1,10 +1,10 @@
 <img class="bike-listing" src=<%= image %>>
 <div class="bike-details">
-  <div class="bike-title">
+  <a href="#bikes/1" class="bike-title">
     <%= bike.get('year') %>
     <%= bike.get('make') %>
     <%= bike.get('model') %>
-  </div>
+  </a>
 
   <div class="bike-rates">
      $<%= bike.get('hour_rate') %>/hour
