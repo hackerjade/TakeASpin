@@ -13,10 +13,10 @@
 
 <aside class="col-md-2 rent-box">
   <div class="pricing">
-    <div class="per-hour">
+    <div class="per-hour-rate">
       <header class=rent-for-label>Rent this bike for:</header>
       <div class="per-price big-price">$<%= bike.get('hour_rate') %></div>
-       <div class="per-time">per hour</div>
+       <div class="per-hour">per hour</div>
     </div>
 
      <div class="per-other">
@@ -31,6 +31,34 @@
      </div>
 
   </div>
+  <div class="bike-show-bottom-divider"></div>
+
+  <div class="show-dates">
+    <div class="pickup-wrapper">
+      <label class="bike-show-dates">Pickup</label>
+
+      <div class="row form-inline">
+        <div class="form-group dates">
+          <input class="search-input date form-control" id="pickup-date" type="text" name="" value="" placeholder="Date">
+          <input class="search-input time form-control" id="pickup-time" type="text" name="" value="" placeholder="Time">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="return-wrapper">
+      <label class="bike-show-dates">Return</label>
+
+      <div class="row form-inline">
+        <div class="form-group dates">
+          <input class="search-input date form-control" id="return-date" type="text" name="" value="" placeholder="Date">
+          <input class="search-input time form-control" id="return-time" type="text" name="" value="" placeholder="Time">
+        </div>
+      </div>
+    </div>
+    <input type="submit" value="Rent" class="btn rent-button">
+  </div>
+
 </aside>
 
 </div>

@@ -351,13 +351,15 @@ section.col-md-8.show-box {
 aside.col-md-2.rent-box {
   border: 1px solid #C3C3C3;
   padding: 30px;
+  padding-top: 21px;
   width: 300px;
-  height: 300px;
+  height: 350px;
+  border-radius: 10px;
 }
 
 .rent-box {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 200;
   color: gray;
   letter-spacing: 0.02em;
   line-height: 22px;
@@ -366,7 +368,7 @@ aside.col-md-2.rent-box {
 .rent-for-label {
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 200;
   color: gray;
   letter-spacing: 0.02em;
   line-height: 22px;
@@ -378,7 +380,6 @@ aside.col-md-2.rent-box {
   text-align: right;
   position: relative;
   right: 185px;
-  font-weight: 400;
 }
 
 .per-price {
@@ -387,16 +388,65 @@ aside.col-md-2.rent-box {
   font-size: 20px;
 }
 
-.per-hour {
+div.per-hour-rate {
   position: relative;
+}
+
+div.per-hour {
+  margin-left: 41px;
+  margin-top: -9px;
+  font-size: 14px;
 }
 
 .per-other {
   position: absolute;
   right: 75px;
-  top: 60px;
+  top: 52px;
 }
 
 .daily-price, .weekly-price {
-  display: inline-flex;
+  display: flex;
+  margin-right: -10px;
+}
+
+.per-time {
+  margin-right: -31px;
+  margin-left: 7px;
+}
+
+.bike-show-bottom-divider {
+  margin-top: 8px;
+  margin-bottom: 0px;
+  margin-left: -16px;
+  background-color: #EEE;
+  height: 1px;
+  width: 272px;
+}
+
+.show-dates {
+  margin-top: 15px;
+}
+
+.rent-button {
+  background-color: #B849A3;
+  color: white;
+  border-color: #a74193;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  width: 267px;
+}
+
+.rent-button:hover {
+  background-color: #c66eb6;
+  color: white;
+}
+
+.bike-show-dates {
+  margin-left: 0px;
+  font-weight: 500;
+  color: #666;
+  letter-spacing: 0.7px;
+  font-size: 16px;
 }
