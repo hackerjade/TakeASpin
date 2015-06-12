@@ -30,7 +30,7 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
 
   attachMapListeners: function () {
     window.google.maps.event.addListener(this._map, 'click', this.closeInfoWindow.bind(this));
-    // window.google.maps.event.addListener(this._map, 'idle', this.search.bind(this));
+    window.google.maps.event.addListener(this._map, 'idle', this.search.bind(this));
   },
 
   closeInfoWindow: function() {
@@ -47,10 +47,9 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
       lng: [sw.lng(), ne.lng()]
     };
 
-    console.log(filterData.lat)
-    // this.collection.fetch({
-    //   data: { filter_data: filterData }
-    // });
+    this.collection.fetch({
+      data: { filter_data: filterData }
+    });
   },
 
   removeMarker: function (location) {

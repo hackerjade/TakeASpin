@@ -18,7 +18,7 @@ window.TakeASpin.Views.SearchFilterShow = Backbone.View.extend({
     var content = this.template();
     this.$el.html(content);
     this.$('.date-view').html(this.pickupDate.$el);
-    this.$('.date-view').append(this.returnDate.$el);
+    // this.$('.date-view').append(this.returnDate.$el);
     this.pickupDate.render();
     this.returnDate.render();
     return this;

@@ -19,11 +19,9 @@ window.TakeASpin.Views.SearchShowView = Backbone.CompositeView.extend({
 
   events: {
     'change .search-input.location-input': 'fetchBikes',
-   // 'keyup .searchbar input': 'fetchBikes'
   },
 
   fetchBikes: function(event){
-  //  event.preventDefault();
    var that = this;
    var filter = this.$('.search-input.location-input').val();
    var geocoder = new window.google.maps.Geocoder();
@@ -39,7 +37,11 @@ window.TakeASpin.Views.SearchShowView = Backbone.CompositeView.extend({
             }
         }
     );
-   this.collection.fetch({ data: { search: filter } });
+
+
+    this.collection.fetch({
+      data: { filter_data: {filter} }
+    });
    this.filter = filter;
    this.$('.searchbar input').focus();
   },

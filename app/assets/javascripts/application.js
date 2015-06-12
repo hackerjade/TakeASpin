@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require moment
+//= require bootstrap-sprockets
+//= require bootstrap-datetimepicker
 //= require underscore
 //= require backbone
 //= require_tree ./utils
