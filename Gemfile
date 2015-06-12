@@ -14,6 +14,7 @@ gem 'backbone-on-rails'
 gem 'ejs'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'better_errors'
