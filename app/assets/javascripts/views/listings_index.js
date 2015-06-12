@@ -1,29 +1,32 @@
-window.TakeASpin.Views.listingsIndex = Backbone.View.extend({
+window.TakeASpin.Views.listingsIndex = Backbone.CompositeView.extend({
   template: JST['listing'],
   className: 'listing',
 
   initialize: function() {
-    this.searchFilter = new window.TakeASpin.Views.SearchFilterShow({
+    var searchFilter = new window.TakeASpin.Views.SearchFilterShow({
       collection: this.collection
     });
+    this.addSubview(".search-filter", searchFilter);
+    this.collection.each(this.addBike.bind(this));
+    this.listenTo(this.collection, "add", this.addBike);
+    this.listenTo(this.collection, "remove", this.removeBike);
+  },
 
-    this.bikeList = new window.TakeASpin.Views.BikeListShow({
-      collection: this.collection
+  addBike: function(bike){
+    var bikeView = new window.TakeASpin.Views.BikeListShow({
+      model: bike
     });
+    this.addSubview( ".bike-list", bikeView);
+  },
+
+  removeBike: function(bike){
+    this.removeModelSubview('.bike-list', bike);
   },
 
   render: function() {
     var content = this.template();
     this.$el.html(content);
-    this.$('.search-filter').html(this.searchFilter.$el);
-    this.collection.each(function(bike) {
-      var bikeList = new window.TakeASpin.Views.BikeListShow({
-        model: bike
-      });
-      this.$('.bike-list').append(bikeList.$el);
-      bikeList.render();
-    });
-    this.searchFilter.render();
+    this.attachSubviews();
     return this;
   }
 

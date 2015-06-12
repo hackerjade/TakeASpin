@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root :to => 'site#root'
 
   resources :users, only: [:create, :new]
+  get '/tour', to: 'users#tour'
   resource :session, only: [:create, :destroy, :new]
 
   namespace :api, defaults: { format: :json } do

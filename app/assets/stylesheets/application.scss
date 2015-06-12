@@ -84,6 +84,9 @@ div#content {
   margin-top: -21px;
 }
 
+div.jumbotron {
+  height: 100%
+}
 
 /* sign in */
 div.search-form {
@@ -215,7 +218,7 @@ div.filter-divider {
   background-color: #FFF;
 }
 
-.time.form-control {
+.date.form-control {
   display: inline-block;
   width: 76px;
   height: 31px;
@@ -223,6 +226,20 @@ div.filter-divider {
   -webkit-border-radius: 3px;
   vertical-align: middle;
   color: #BFBFB9;
+  font-size: 14px;
+  padding: 0px 0px 0px 8px;
+}
+
+.time.form-control {
+  display: inline-block;
+  width: 80px;
+  height: 31px;
+  margin-right: 5px;
+  -webkit-border-radius: 3px;
+  vertical-align: middle;
+  color: #BFBFB9;
+  font-size: 14px;
+  padding: 0px 0px 0px 8px;
 }
 
 .form-group.dates {

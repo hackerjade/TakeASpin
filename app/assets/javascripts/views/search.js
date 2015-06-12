@@ -1,4 +1,4 @@
-window.TakeASpin.Views.SearchShowView = Backbone.CompositeView.extend({
+window.TakeASpin.Views.SearchShowView = Backbone.View.extend({
   template: JST['search'],
 
   className: 'search-page',
@@ -13,8 +13,6 @@ window.TakeASpin.Views.SearchShowView = Backbone.CompositeView.extend({
     this.listingsIndex = new window.TakeASpin.Views.listingsIndex({
       collection: this.collection
     });
-
-    this.listenTo(this.collection, 'sync add remove', this.render);
   },
 
   events: {

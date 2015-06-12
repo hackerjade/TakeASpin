@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def tour
+      render :tour
+  end
+
   private
   def user_params
     params.require(:user).permit(:password, :email, :fname, :lname)
