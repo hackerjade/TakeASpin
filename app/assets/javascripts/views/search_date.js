@@ -31,7 +31,9 @@ window.TakeASpin.Views.SearchDate = Backbone.View.extend({
     this.returnTime = $('#return-time').val();
     // console.log(this.pickupDate, this.returnDate, this.pickupTime, this.returnTime);
     // if (this.pickupDate && this.returnDate && this.pickupTime && this.returnTime) {
-    //   this.fetchBikes(event)
+    //   this.collection.fetch({
+    //     data: { filter_data: }
+    //   })
     // }
   },
 

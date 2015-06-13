@@ -5,7 +5,7 @@ class Api::BikesController < ApplicationController
   end
 
   def show
-    @bike = Bike.first
+    @bike = Bike.find(params['id'])
     render json: @bike
   end
 

@@ -7,6 +7,7 @@ window.TakeASpin.Views.BikeShow = Backbone.View.extend({
   },
 
   render: function() {
+    console.log('rendering');
     var imgUrl = this.model.get('image_url');
     var content = this.template({
       image: imgUrl,
