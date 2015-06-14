@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     get 'bikes/search', to: 'bikes#search'
     resources :bikes, only: [:index, :show]
+    resources :bike_rental_requests, only: [:index, :show, :create, :destroy]
   end
 end

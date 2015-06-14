@@ -7,7 +7,6 @@ window.TakeASpin.Views.BikeShow = Backbone.View.extend({
   },
 
   render: function() {
-    console.log('rendering');
     var imgUrl = this.model.get('image_url');
     var content = this.template({
       image: imgUrl,
@@ -29,7 +28,27 @@ window.TakeASpin.Views.BikeShow = Backbone.View.extend({
   },
 
   submitRentalForm: function() {
-    alert('rent!');
+    var data = {
+      bike_id: this.model.get('id'),
+      user_id: window.currentUserId,
+      // user_id: null,
+      start_date: this.pickupDate,
+      start_time: this.pickupTime,
+      end_date: this.returnDate,
+      end_time: this.returnTime
+    };
+    var that = this;
+
+    var newRentalRequest = new window.TakeASpin.Models.Rental({rental: data});
+    newRentalRequest.save({}, {
+      success: function() {
+        // that.collection.add(that.model, { merge: true });
+        Backbone.history.navigate("rentals", { trigger: true });
+      },
+      error: function() {
+        alert(arguments[1].responseText);
+      }
+    });
   },
 
   modReturnDate: function(event) {
@@ -40,14 +59,21 @@ window.TakeASpin.Views.BikeShow = Backbone.View.extend({
   },
 
   saveDates: function(event) {
-    this.pickupDate = $('#pickup-date').val();
+    this.pickupDate = $('#pickup-date').data('DateTimePicker').date()._d;
     this.pickupTime = $('#pickup-time').val();
-    this.returnDate = $('#return-date').val();
+    this.returnDate = $('#return-date').data('DateTimePicker').date()._d;
     this.returnTime = $('#return-time').val();
-    // console.log(this.pickupDate, this.returnDate, this.pickupTime, this.returnTime);
-    // if (this.pickupDate && this.returnDate && this.pickupTime && this.returnTime) {
-    //   this.fetchBikes(event)
-    // }
+    if (this.datesFilled()) {
+      $('.rent-button').removeClass('disabled');
+      // add part to show duration and cost
+    } else {
+      $('.rent-button').addClass('disabled');
+      // add popup button to tell user to fill in dates
+    }
+  },
+
+  datesFilled: function() {
+    return !!(this.pickupDate && this.returnDate && this.pickupTime && this.returnTime);
   },
 
   modPickupDate: function(event) {
@@ -65,6 +91,7 @@ window.TakeASpin.Views.BikeShow = Backbone.View.extend({
     ['#pickup-date', '#return-date'].forEach(function(input) {
       this.$(input).datetimepicker({
         format: 'MMM-DD',
+        extraFormats: ["yymmdd"],
         minDate: moment(),
         maxDate: moment().add(3, 'months'),
         showClose: true,

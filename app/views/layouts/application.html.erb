@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css">
   <% if current_user %>
     <script type="text/javascript"> window.currentUser = "<%= current_user.fname %>"</script>
+    <script type="text/javascript"> window.currentUserId = "<%= current_user.id %>"</script>
   <% end %>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= api_key %>"></script>
 

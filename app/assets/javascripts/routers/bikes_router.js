@@ -9,7 +9,8 @@ window.TakeASpin.Routers.Bikes = Backbone.Router.extend({
     "tour": "itWorks",
     "bikes/new": "new",
     "bikes/:id": "show",
-    "bikes/:id/edit": "edit"
+    "bikes/:id/edit": "edit",
+    "rentals": "showRentals"
   },
 
   index: function() {
@@ -51,6 +52,11 @@ window.TakeASpin.Routers.Bikes = Backbone.Router.extend({
   },
 
   itWorks: function() {
+    var view = new window.TakeASpin.Views.ItWorksShow();
+    this._swapViews(view);
+  },
+
+  showRentals: function() {
     var view = new window.TakeASpin.Views.ItWorksShow();
     this._swapViews(view);
   },
