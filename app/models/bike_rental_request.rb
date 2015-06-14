@@ -11,7 +11,8 @@ class BikeRentalRequest < ActiveRecord::Base
     :start_time,
     :end_date,
     :end_time,
-    :status
+    :status,
+    presence: true
   )
 
   validate :does_not_overlap_approved_request
