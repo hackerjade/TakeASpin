@@ -3,24 +3,20 @@
 ## New Session
 ![new-session]
 
-## Feed Show (landing page)
-![feed-show]
+## Search Show (landing page)
+![search-show]
 
-## Blog Show
-![blog-show]
+## Bike Show
+![bike-show]
 
-## Post Show
-![post-show]
+## Trip Show
+![trip-show]
 
-## Post Form
-![post-form]
-
-## Search Results
-![search-results]
+## Bike Form
+![bike-form]
 
 [new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/search_show.png
-[blog-show]: ./wireframes/bike_show.png
-[post-show]: ./wireframes/trip_show.png
-[post-form]: ./wireframes/bike_form.png
-[search-results]: ./wireframes/search_show.png
+[search-show]: ./wireframes/search_show.png
+[bike-show]: ./wireframes/bike_show.png
+[trip-show]: ./wireframes/trip_show.png
+[bike-form]: ./wireframes/bike_form.png
