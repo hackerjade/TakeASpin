@@ -12,7 +12,7 @@ TakeASpin.Mixins.Dateable = Backbone.View.extend({
   },
 
   modReturnTime: function(event) {
-    var time = event.date;
+    var time = event.date.add(1, 'hour');
     if (time); {
       this.$('#return-time').data("DateTimePicker").minDate(time);
     }

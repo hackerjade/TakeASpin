@@ -423,6 +423,15 @@ div.per-hour {
   width: 272px;
 }
 
+.bike-img-bottom-divider {
+  margin-top: 50px;
+  margin-bottom: 47px;
+  margin-left: -16px;
+  background-color: #CCCCCC;
+  height: 1px;
+  width: 870px;
+}
+
 .show-dates {
   margin-top: 15px;
 }
@@ -449,4 +458,15 @@ div.per-hour {
   color: #666;
   letter-spacing: 0.7px;
   font-size: 16px;
+}
+
+.user-title {
+  margin-top: 27px;
+  margin-left: 128px;
+  font-size: 33px;
+  font-weight: 100;
+}
+
+.description {
+  color: #666;
 }

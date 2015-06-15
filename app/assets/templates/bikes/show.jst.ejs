@@ -6,8 +6,11 @@
 
     <img src=<%= image %>>
     <br>
-      <div class="bike-list-bottom-divider"></div>
-      <li><%= bike.get('year') %></li>
+    <div class="user-title">
+      <%= bike.owner() %>
+    </div>
+      <div class="bike-img-bottom-divider"></div>
+      <p class="description"><%= bike.get('description') %></p>
   </section>
 
 

@@ -6,7 +6,7 @@ class Api::BikesController < ApplicationController
 
   def show
     @bike = Bike.find(params['id'])
-    render json: @bike
+    render :show
   end
 
   def search
@@ -32,10 +32,11 @@ class Api::BikesController < ApplicationController
       end_time: filter_data['end_time']
     }
 
-    in_view_bike_ids = find_bikes_in_view(binds)
     available_bike_ids = find_available_bikes(binds)
+    in_view_bike_ids = find_bikes_in_view(binds)
 
-    ids = (in_view_bike_ids && available_bike_ids).uniq
+    ids = in_view_bike_ids
+    # && available_bike_ids).uniq
     bikes = ids.map{ |id| Bike.find_by_id(id) }
   end
 
