@@ -17,8 +17,8 @@
 //= require bootstrap-datetimepicker
 //= require underscore
 //= require backbone
-//= require_tree ./utils
 //= require take_a_spin
+//= require_tree ./utils
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

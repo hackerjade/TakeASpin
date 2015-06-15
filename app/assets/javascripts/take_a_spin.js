@@ -3,6 +3,7 @@ window.TakeASpin = {
   Collections: {},
   Views: {},
   Routers: {},
+  Mixins: {},
   initialize: function() {
     var collection = window.TakeASpin.Collections.bikes;
     var router = new window.TakeASpin.Routers.Bikes({

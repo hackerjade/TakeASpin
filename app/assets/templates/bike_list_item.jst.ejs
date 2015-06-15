@@ -1,6 +1,6 @@
 <img class="bike-listing" src=<%= image %>>
 <div class="bike-details">
-  <a href="#bikes/1" class="bike-title">
+  <a href="#bikes/<%= bike.get('id') %>" class="bike-title">
     <%= bike.get('year') %>
     <%= bike.get('make') %>
     <%= bike.get('model') %>

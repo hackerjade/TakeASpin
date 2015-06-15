@@ -93,17 +93,17 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
     this.pointer && this.pointer.setMap(null);
     this._map.setCenter(loc);
     this.pointer = new window.google.maps.Marker({
-            map: this._map,
-            position: loc,
-            icon: {
-              path: window.google.maps.SymbolPath.CIRCLE,
-              scale: 10,
-              fillColor: '#5DADE2',
-              fillOpacity: 0.5,
-              strokeColor: '#1B7BB9',
-              strokeWeight: 2
-            }
-        });
+      map: this._map,
+      position: loc,
+      icon: {
+        path: window.google.maps.SymbolPath.CIRCLE,
+        scale: 10,
+        fillColor: '#5DADE2',
+        fillOpacity: 0.5,
+        strokeColor: '#1B7BB9',
+        strokeWeight: 2
+      }
+    });
   }
 
 });

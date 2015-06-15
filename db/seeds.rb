@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 guest = User.create({
   email: 'guest@gmail.com',
   fname: 'Jade',
@@ -53,4 +45,31 @@ bike3 = Bike.create({
   description: 'Happy Trails!',
   day_rate: 30,
   hour_rate: 5
+})
+
+tuesday = BikeRentalRequest.create({
+  bike_id: 1,
+  user_id: 1,
+  start_date: '2015-06-23',
+  start_time: "0:00 AM",
+  end_date: '2015-06-23',
+  end_time: "12:00 PM"
+})
+
+wednesday = BikeRentalRequest.create({
+  bike_id: 2,
+  user_id: 1,
+  start_date: '2015-06-24',
+  start_time: "0:00 AM",
+  end_date: '2015-06-24',
+  end_time: "12:00 PM"
+})
+
+thursday = BikeRentalRequest.create({
+  bike_id: 3,
+  user_id: 1,
+  start_date: '2015-06-25',
+  start_time: "0:00 AM",
+  end_date: '2015-06-25',
+  end_time: "12:00 PM"
 })

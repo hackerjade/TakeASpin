@@ -1,22 +1,28 @@
 window.TakeASpin.Views.SearchShowView = Backbone.View.extend({
   template: JST['search'],
-
   className: 'search-page',
 
+  events: {
+    'change .search-input.location-input': 'updateMapLoc',
+  },
+
   initialize: function() {
+    this.listingsIndex = new window.TakeASpin.Views.listingsIndex({
+      collection: this.collection
+    });
     this.mapView = new window.TakeASpin.Views.MapShow({
       collection: this.collection
     });
     this.mapView.initMap();
-
-
-    this.listingsIndex = new window.TakeASpin.Views.listingsIndex({
-      collection: this.collection
-    });
   },
 
-  events: {
-    'change .search-input.location-input': 'updateMapLoc',
+  render: function() {
+    var content = this.template();
+    this.$el.html(content);
+    this.$('.map-sidebar').html(this.listingsIndex.$el);
+    this.$('.map').html(this.mapView.$el);
+    this.listingsIndex.render();
+    return this;
   },
 
   updateMapLoc: function() {
@@ -37,14 +43,5 @@ window.TakeASpin.Views.SearchShowView = Backbone.View.extend({
 
     this.filter = filter;
     this.$('.searchbar input').focus();
-  },
-
-  render: function() {
-    var content = this.template();
-    this.$el.html(content);
-    this.$('.map-sidebar').html(this.listingsIndex.$el);
-    this.$('.map').html(this.mapView.$el);
-    this.listingsIndex.render();
-    return this;
   }
 });
