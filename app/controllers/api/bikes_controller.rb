@@ -32,35 +32,31 @@ class Api::BikesController < ApplicationController
       end_time: filter_data['end_time']
     }
 
-    available_bike_ids = find_available_bikes(binds)
-    in_view_bike_ids = find_bikes_in_view(binds)
-
-    ids = in_view_bike_ids
-    # && available_bike_ids).uniq
-    bikes = ids.map{ |id| Bike.find_by_id(id) }
+    bikes = find_available_bikes(binds)
   end
 
   def find_available_bikes(binds)
-    nonconflicting_requests = BikeRentalRequest.where(<<-SQL, binds)
+    requests = BikeRentalRequest.where(<<-SQL, binds)
       ( (start_date > :end_date) OR (end_date < :start_date) )
     SQL
-    available_bike_ids = nonconflicting_requests.map { |request| request.bike.id }
+
+    binds[:ids] = requests.map{|request| request.bike_id}.uniq
+
+    find_bikes_in_view(binds)
   end
 
   def find_bikes_in_view(binds)
     if binds[:lng_min].to_f > binds[:lng_max].to_f
-      in_view_bikes = Bike.where(<<-SQL, binds)
+      in_view_bikes = Bike.where(id: binds[:ids]).where(<<-SQL, binds)
         bikes.lng BETWEEN :lng_min AND 180
           OR bikes.lng BETWEEN -180 AND :lng_max
       SQL
     else
-      in_view_bikes = Bike.where(<<-SQL, binds)
+      in_view_bikes = Bike.where(id: binds[:ids]).where(<<-SQL, binds)
         bikes.lat BETWEEN :lat_min AND :lat_max
           AND bikes.lng BETWEEN :lng_min AND :lng_max
       SQL
     end
-
-    in_view_bikes.pluck(:id)
   end
 
   def filter_options
