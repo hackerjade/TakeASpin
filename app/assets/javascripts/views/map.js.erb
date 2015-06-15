@@ -42,14 +42,10 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
     var ne = mapBounds.getNorthEast();
     var sw = mapBounds.getSouthWest();
 
-    var filterData = {
-      lat: [sw.lat(), ne.lat()],
-      lng: [sw.lng(), ne.lng()]
-    };
+    this.collection.filterData.lat = [sw.lat(), ne.lat()];
+    this.collection.filterData.lng = [sw.lng(), ne.lng()];
 
-    this.collection.fetch({
-      data: { filter_data: filterData }
-    });
+    this.collection.filterBikes();
   },
 
   removeMarker: function (location) {

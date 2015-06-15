@@ -10,7 +10,7 @@ window.TakeASpin.Models.Bike = Backbone.Model.extend({
   },
 
   owner: function(user) {
-    if(!this._ownerName) {
+    if(!this._ownerName && user) {
       this._ownerName = user.fname + ' ' + user.lname[0] + '.';
     }
 

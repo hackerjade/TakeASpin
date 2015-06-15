@@ -42,6 +42,7 @@ class Api::BikesController < ApplicationController
 
     binds[:ids] = requests.map{|request| request.bike_id}.uniq
 
+
     find_bikes_in_view(binds)
   end
 
