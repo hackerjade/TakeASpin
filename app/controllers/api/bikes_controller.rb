@@ -10,8 +10,7 @@ class Api::BikesController < ApplicationController
   end
 
   def search
-    options = params[:filter_data] || {}
-    @bikes = filter_bikes(options)
+    @bikes = filter_bikes(filter_options)
 
     render json: @bikes
   end
@@ -59,5 +58,15 @@ class Api::BikesController < ApplicationController
           AND bikes.lng BETWEEN :lng_min AND :lng_max
       SQL
     end
+  end
+
+  def filter_options
+    options = params[:filter_data] || {}
+    defaults = {
+      'lat' => [37.67767358309138, 37.8887756788066],
+      'lng' => [-122.56501542968749, -122.26838457031249]
+    }
+
+    defaults.merge(options)
   end
 end

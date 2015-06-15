@@ -1,7 +1,7 @@
 class Api::BikeRentalRequestsController < ApplicationController
   def index
-    @rental = BikeRentalRequest.all
-    render json: @rental
+    @rentals = current_user.rental_requests 
+    render json: @rentals
   end
 
   def show

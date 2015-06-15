@@ -25,11 +25,17 @@ TakeASpin.Views.BikeShow = TakeASpin.Mixins.Dateable.extend({
 
     this.$el.html(content);
     this.initDates();
+    $('[data-toggle="tooltip"]').tooltip();
 
     return this;
   },
 
-  submitRentalForm: function() {
+  submitRentalForm: function(evt) {
+    if ($(evt.target).hasClass("btn-disabled")) {
+      evt.preventDefault();
+      return false;
+    };
+
     var data = {
       bike_id: this.model.get('id'),
       user_id: window.currentUserId,
@@ -40,29 +46,30 @@ TakeASpin.Views.BikeShow = TakeASpin.Mixins.Dateable.extend({
     };
 
     debugger;
-    var that = this;
-
     var newRentalRequest = new window.TakeASpin.Models.Rental({rental: data});
-    newRentalRequest.save({}, {
-      success: function() {
-        // that.collection.add(that.model, { merge: true });
         Backbone.history.navigate("rentals", { trigger: true });
-      },
-      error: function() {
-        alert(arguments[1].responseText);
-      }
-    });
+    // var that = this;
+    //
+    // newRentalRequest.save({}, {
+    //   success: function() {
+    //     // that.collection.add(that.model, { merge: true });
+    //   },
+    //   error: function() {
+    //     alert(arguments[1].responseText);
+    //   }
+    // });
   },
 
   activateButton: function(event) {
     this.saveDates();
     if (this.datesFilled()) {
 
-      $('.rent-button').removeClass('disabled');
+      $('.rent-button').removeClass('btn-disabled');
+      $('[data-toggle="tooltip"]').tooltip('destroy');
       // add part to show duration and cost
     } else {
-      $('.rent-button').addClass('disabled');
-      // add popup button to tell user to fill in dates
+      $('.rent-button').addClass('btn-disabled');
+      $('[data-toggle="tooltip"]').tooltip();
     }
   }
 });

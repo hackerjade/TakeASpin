@@ -1,0 +1,40 @@
+window.TakeASpin.Views.RentalsIndex = Backbone.CompositeView.extend({
+  template: JST['rentals/index'],
+  className: 'rental-list',
+
+  initialize: function() {
+    this.collection = new window.TakeASpin.Collections.Rentals();
+    this.collection.fetch();
+
+    this.collection.each(this.addRental.bind(this));
+    this.listenTo(this.collection, "add", this.addRental);
+    this.listenTo(this.collection, "remove", this.removeRental);
+  },
+
+  addRental: function(rental) {
+    var rentalView = new window.TakeASpin.Views.RentalShow({
+      model: rental
+    });
+    this.addSubview('.rental-show', rentalView);
+  },
+
+  removeRental: function(rental) {
+    this.removeModelSubview('.rental-show', rental);
+  },
+
+  render: function() {
+    var bikeIcon = "<%= asset_path('bike-icon.png') %>";
+    var content = this.template({
+      icon: bikeIcon
+    });
+
+    this.$el.html(content);
+    this.attachSubviews();
+
+    if (!(this.collection.length == 0)) {
+      // $('.empty').addClass('hide');
+    }
+    return this;
+  }
+
+});
