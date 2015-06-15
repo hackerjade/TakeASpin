@@ -1,4 +1,4 @@
-window.TakeASpin.Views.listingsIndex = Backbone.CompositeView.extend({
+window.TakeASpin.Views.ListingsIndex = Backbone.CompositeView.extend({
   template: JST['listing'],
   className: 'listing',
 

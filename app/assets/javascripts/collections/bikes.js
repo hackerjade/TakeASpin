@@ -36,7 +36,4 @@ window.TakeASpin.Collections.Bikes = Backbone.Collection.extend({
       data: { filter_data: this.filterData }
     });
   }
-
 });
-
-window.TakeASpin.Collections.bikes = new window.TakeASpin.Collections.Bikes();

@@ -5,8 +5,8 @@ class BikeRentalRequest < ActiveRecord::Base
   after_initialize :assign_pending_status
 
   validates(
-    :bike_id,
-    :user_id,
+    :bike,
+    :user,
     :start_date,
     :start_time,
     :end_date,
@@ -37,7 +37,7 @@ class BikeRentalRequest < ActiveRecord::Base
   end
 
   def overlapping_requests
-    CatRentalRequest
+    BikeRentalRequest
      .where("(:id IS NULL) OR (id != :id)", id: self.id)
      .where(bike_id: bike_id)
      .where(<<-SQL, start_date: start_date, end_date: end_date)

@@ -21,7 +21,7 @@ class Api::BikeRentalRequestsController < ApplicationController
 
   def destroy
     @rental = BikeRentalRequest.find(params['id'])
-    @rental.try(:destroy)
+    @rental.destroy
     render json: {}
   end
 

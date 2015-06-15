@@ -5,7 +5,7 @@ window.TakeASpin = {
   Routers: {},
   Mixins: {},
   initialize: function() {
-    var collection = window.TakeASpin.Collections.bikes;
+    var collection = new window.TakeASpin.Collections.Bikes();
     var router = new window.TakeASpin.Routers.Bikes({
       $rootEl: $('#content'),
       collection: collection
