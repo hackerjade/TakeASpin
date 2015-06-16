@@ -1,5 +1,14 @@
-<h1> SHOwing!</h1>
-<li> <%= dates[0] %></li>
-<li> <%= dates[1] %></li>
-<li> <%= dates[2] %></li>
-<li> <%= dates[3] %></li>
+<a href="/#bikes/<%= bike.id %>" class="rental">
+  <div class="rental-details-image">
+    <img class="rental" src="<%= bike.image_url %>"/>
+  </div>
+  <div class="rental-details">
+    <h1 class="rental-title"><%= rental.get('status') %> - <%= bike.year %> <%= bike.make %> <%= bike.model %> </h1>
+    <hr>
+    <div> <%= dates[0] %></div>
+    <div> <%= dates[1] %></div>
+    <div style="border-left:1px solid #000;height:500px"></div>
+    <div> <%= dates[2] %></div>
+    <div> <%= dates[3] %></div>
+  </div>
+</a>

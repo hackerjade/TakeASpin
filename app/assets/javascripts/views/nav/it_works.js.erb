@@ -2,7 +2,10 @@ window.TakeASpin.Views.ItWorksShow = Backbone.View.extend({
   template: JST['navs/it_works'],
 
   render: function() {
-    var content = this.template();
+    var bikeIcon = "<%= asset_path('bike-icon.png') %>";
+    var content = this.template({
+      icon: bikeIcon
+    });
     this.$el.html(content);
     return this;
   }

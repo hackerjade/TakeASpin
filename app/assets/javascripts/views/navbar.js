@@ -7,7 +7,7 @@ window.TakeASpin.Views.NavView = Backbone.View.extend({
   },
 
   events: {
-    'click .dropdown-toggle': "dropMenu",
+    'click .dropdown-toggle, .dropdown-menu': "dropMenu",
     'click .log-out': "logOut"
   },
 

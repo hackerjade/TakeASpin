@@ -61,6 +61,11 @@ h1.intro-2 {
   vertical-align: middle;
 }
 
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+  color: #ffffff;
+  background-color: #4D4D4D;
+}
+
 .navbar-nav {
   color: #fff;
   letter-spacing: .7px;
@@ -105,10 +110,13 @@ li.dropdown {
 /* page */
 div#content {
   margin-top: -21px;
+  padding-top: 1px;
+  background-color: #EBEBEB;
 }
 
 div.jumbotron {
-  height: 100%
+  height: 100%;
+  background-color: #EBEBEB;
 }
 
 /* sign in */
@@ -297,7 +305,6 @@ div.filter-divider {
 
 .bike-list {
   background-color: #FFFFFF;
-  margin-left: 10px;
 }
 
 .date {
@@ -310,11 +317,20 @@ div.filter-divider {
 
 img.bike-listing {
   vertical-align: middle;
-  width: 45%;
+  width: 48%;
 }
 
 .bike-listing {
   margin: 7px;
+}
+
+hr.bike-list-item {
+  margin-top: 10px;
+  margin-bottom: -7px;
+  margin-left: -7px;
+  width: 104%;
+  border: 0;
+  border-top: 1px solid #CCCCCC;
 }
 
 .bike-list, .search-filter {
@@ -549,4 +565,52 @@ h1.upcoming {
 
 .hide {
   display: none;
+}
+
+img.rental {
+  width: 300px;
+}
+
+div.rental {
+  overflow: hidden;
+  margin-left: 15%;
+  margin-right: 15%;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  background-color: white;
+  border: 1px solid #C3C3C3;
+  width: 79%;
+}
+
+div.rental-details-image {
+  float: left;
+}
+
+div.rental:hover {
+    background-color: #F8F2FF;
+}
+
+div.rental-details {
+  float: left;
+  height: 200px;
+  width: 64%;
+}
+
+hr {
+  margin-top: 21px;
+  margin-bottom: 21px;
+  margin-left: 2%;
+  border: 0;
+  border-top: 2px solid #666666;
+}
+
+h1.rental-title {
+  text-align: left;
+  padding-left: 15px;
+  font-size: 27px;
+  font-weight: 500;
+}
+
+a.rental:hover {
+  color: #008cba;
 }
