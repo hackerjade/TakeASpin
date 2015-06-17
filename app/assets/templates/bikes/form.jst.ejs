@@ -1,1 +1,53 @@
-<h1>A form!</h1>
+<aside class="bike-form-details">
+  <h2 class="bike-form-details">Details</h2>
+  <div class="form-group">
+  <select class="form-control" placeholder="Make">
+    <option selected disabled>Make</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+
+  <select class="form-control" placeholder="Model">
+    <option selected disabled>Model</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+
+  <select class="form-control" placeholder="Year">
+    <option selected disabled>Year</option>
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+</div>
+</aside>
+
+<main class="bike-form-details">
+  <h2 class="bike-form-description">Description</h2>
+  <p>Tell renters why your bike is cool. Do you have an amazing frame?
+    Is your bike perfect for touring? Will it travel through time if it hits
+    30 MPH? This is your chance to share why you love your bike.</p>
+  <textarea class="form-control" rows="5"></textarea>
+
+  <h2 class="bike-form-description">Location</h2>
+
+  <div class="bike-form-location-inputs">
+    <div class="address">
+      <label for="street-address" id="autocomplete" class="bike-form-location">Street Address</label>
+      <input type="text" class="form-control address" value="" id="street-address">
+    </div>
+
+    <div class="zip">
+      <label for="zip" class="bike-form-location">zip</label>
+      <input type="text" class="form-control zip" value="" id="zip">
+    </div>
+  </div>
+  <p> Provide an exact address where renters can pick up your bike.</p>
+  <div class="map bike-form"></div>
+  <input type="submit" value="Save bike" class="btn save-bike-button">
+</main>

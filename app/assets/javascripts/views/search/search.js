@@ -13,7 +13,7 @@ window.TakeASpin.Views.SearchShowView = Backbone.View.extend({
     this.mapView = new window.TakeASpin.Views.MapShow({
       collection: this.collection
     });
-    this.mapView.initMap();
+    this.mapView.initMap(15, true);
   },
 
   render: function() {

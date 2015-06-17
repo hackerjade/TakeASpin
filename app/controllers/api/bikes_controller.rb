@@ -36,24 +36,22 @@ class Api::BikesController < ApplicationController
   end
 
   def find_available_bikes(binds)
-    requests = BikeRentalRequest.where(<<-SQL, binds)
+    requests = BikeRentalRequest.where.not(<<-SQL, binds)
       ( (start_date > :end_date) OR (end_date < :start_date) )
     SQL
-
     binds[:ids] = requests.map{|request| request.bike_id}.uniq
-
 
     find_bikes_in_view(binds)
   end
 
   def find_bikes_in_view(binds)
     if binds[:lng_min].to_f > binds[:lng_max].to_f
-      in_view_bikes = Bike.where(id: binds[:ids]).where(<<-SQL, binds)
+      in_view_bikes = Bike.where.not(id: binds[:ids]).where(<<-SQL, binds)
         bikes.lng BETWEEN :lng_min AND 180
           OR bikes.lng BETWEEN -180 AND :lng_max
       SQL
     else
-      in_view_bikes = Bike.where(id: binds[:ids]).where(<<-SQL, binds)
+      in_view_bikes = Bike.where.not(id: binds[:ids]).where(<<-SQL, binds)
         bikes.lat BETWEEN :lat_min AND :lat_max
           AND bikes.lng BETWEEN :lng_min AND :lng_max
       SQL

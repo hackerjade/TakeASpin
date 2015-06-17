@@ -16,11 +16,11 @@ window.TakeASpin.Views.ListingsIndex = Backbone.CompositeView.extend({
     var bikeView = new window.TakeASpin.Views.BikeListShow({
       model: bike
     });
-    this.addSubview(".bike-list", bikeView);
+    this.addSubview(".first-child", bikeView);
   },
 
   removeBike: function(bike){
-    this.removeModelSubview('.bike-list', bike);
+    this.removeModelSubview('.first-child', bike);
   },
 
   render: function() {

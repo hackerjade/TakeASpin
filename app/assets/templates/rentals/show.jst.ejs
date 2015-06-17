@@ -5,10 +5,16 @@
   <div class="rental-details">
     <h1 class="rental-title"><%= rental.get('status') %> - <%= bike.year %> <%= bike.make %> <%= bike.model %> </h1>
     <hr>
-    <div> <%= dates[0] %></div>
-    <div> <%= dates[1] %></div>
-    <div style="border-left:1px solid #000;height:500px"></div>
-    <div> <%= dates[2] %></div>
-    <div> <%= dates[3] %></div>
+    <div class="rental-pickup">
+    <h4 class="rental-title">Pickup</h4>
+    <%= dates[0] %><br>
+    <%= dates[1] %></div>
+
+    <div class="divider-rental-show"></div>
+
+    <div class="rental-return">
+      <h4 class="rental-title">Return</h4>
+    <%= dates[2] %><br>
+    <%= dates[3] %></div>
   </div>
 </a>
