@@ -8,27 +8,35 @@
     <% api_key = '' %>
   <% end %>
 
+  <%= csrf_meta_tags %>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="http://widget.cloudinary.com/global/all.js" type="text/javascript" charset="utf-8"></script>
+
+  <%= javascript_include_tag 'application' %>
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css">
+
   <% if current_user %>
     <script type="text/javascript"> window.currentUser = "<%= current_user.fname %>"</script>
     <script type="text/javascript"> window.currentUserId = "<%= current_user.id %>"</script>
+    <script type="text/javascript"> window.cloud_name = "<%= ENV["cloudinary_api"] %>"</script>
+    <script type="text/javascript"> window.upload_preset = "<%= ENV["upload_preset"] %>"</script>
   <% end %>
 
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places,key=<%= api_key %>"></script>
   <title>TakeASpin</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
 </head>
 <body>
 
   <%= yield %>
-
 </body>
 </html>

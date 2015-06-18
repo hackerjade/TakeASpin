@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui/datepicker
+ *= require jquery-ui/slider
  */
 
  @import "bootstrap-sprockets";
@@ -67,7 +69,7 @@ h1.intro-2 {
 /* nav bar */
 .navbar-brand { margin-left: 50px; }
 
-.navbar { margin-bottom: 0;}
+.navbar { margin-bottom: 0 !important; }
 
 .fa-spinner { margin-right: -6px; }
 
@@ -254,8 +256,14 @@ div.filter-divider {
   height: 25px;
   width: 62px;
   padding: 0 8px;
-  margin-top: 6px;
+  margin-top: -25px;
   margin-right: 21px;
+}
+
+.bike-count {
+  padding-top: 9px;
+  padding-left: 19px;
+  color: #666;
 }
 
 .filter-button:hover {
@@ -289,6 +297,10 @@ div.filter-divider {
 .form-group.dates {
   display: flex;
   margin-left: 17px;
+}
+
+.form-group {
+  margin-bottom: 40px;
 }
 
 .return-wrapper {
@@ -732,6 +744,37 @@ input#street-address, input#zip {
   display: block;
 }
 
+.file-upload {
+  background-color: #FFF;
+  height: 298px;
+  margin-top: 21%;
+  margin-right: 5%;
+  font-size: 27px;
+  padding-top: 29px;
+  text-align: center;
+  border-radius: 17px;
+}
+
+a#upload_widget_opener:hover {
+  text-decoration: none;
+  color: #008cba;
+  .file-upload {
+    background-color: rgb(235, 235, 235);
+  }
+}
+
+.bike-thumbnail {
+  background-color: rgb(194, 194, 194);
+  height: 157px;
+  width: 82%;
+  margin-left: 9%;
+  margin-top: 11%;
+}
+
+.bike-image {
+  width: 100%;
+}
+
 .save-bike-button {
   background-color: #B849A3;
   color: white;
@@ -741,4 +784,52 @@ input#street-address, input#zip {
   font-size: 17px;
   font-weight: 100;
   float: right;
+}
+
+input.form-control.rates {
+  width: 56%;
+  padding: 16px;
+  border-radius: 13px;
+  margin-left: 12px;
+  margin-right: 18px;
+}
+
+.form-rates:nth-child(1) {
+  margin-top: 10px;
+}
+
+.form-rates {
+  display: inline-flex;
+  margin-left: 25px;
+}
+
+div#slider {
+  height: 10px;
+}
+
+.ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #9b9b9b;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  background: #fff;
+  -webkit-box-shadow: inset 0 0 20px 0 rgba(100,100,100,0.1);
+  -moz-box-shadow: inset 0 0 20px 0 rgba(100,100,100,0.1);
+  box-shadow: inset 0 0 20px 0 rgba(100,100,100,0.1);
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: -webkit-transform 0.1s;
+  -moz-transition: -moz-transform 0.1s;
+  -o-transition: -o-transform 0.1s;
+  transition: transform 0.1s;
+}
+
+.ui-slider {
+  background-color: green;
 }

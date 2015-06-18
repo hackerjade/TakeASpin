@@ -5,10 +5,14 @@ window.TakeASpin.Views.SearchFilterShow = Backbone.View.extend({
     this.dateView = new window.TakeASpin.Views.SearchDate({
           collection: this.collection
     });
+    this.listenTo(this.collection, 'sync', this.render);
   },
 
   render: function() {
-    var content = this.template();
+    var count = this.collection.models.length;
+    var content = this.template({
+      count: count
+    });
     this.$el.html(content);
 
     this.$('.date-view').html(this.dateView.$el);

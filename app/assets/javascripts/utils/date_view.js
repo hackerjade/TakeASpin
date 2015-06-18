@@ -44,6 +44,7 @@ TakeASpin.Mixins.Dateable = Backbone.View.extend({
     this.pickupTime = $('#pickup-time').val();
     this.returnDate = this.formatDate('#return-date');
     this.returnTime = $('#return-time').val();
+    console.log(this.pickupDate, this.pickupTime, this.returnDate, this.returnTime);
   },
 
   datesFilled: function() {

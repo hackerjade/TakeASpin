@@ -5,6 +5,7 @@ window.TakeASpin.Views.BikeForm = Backbone.View.extend({
   events: {
     'change .form-control.address': 'saveLoc',
     'change .form-control.zip': 'saveLoc',
+    'click #upload_widget_opener': 'uploadFiles'
   },
 
   initialize: function() {
@@ -15,15 +16,33 @@ window.TakeASpin.Views.BikeForm = Backbone.View.extend({
   },
 
   render: function() {
+    var bikeIcon = "<%= asset_path('bike-icon.png') %>";
     var content = this.template({
       bikes: this.collection,
-      bike: this.model
+      bike: this.model,
+      bikeIcon: bikeIcon
     });
 
     this.$el.html(content);
     this.$('.map').html(this.mapView.$el);
+    this.$('#slider').slider();
 
     return this;
+
+  },
+
+  uploadFiles: function() {
+    var cloud_name = window.cloud_name;
+    var upload_preset = window.upload_preset;
+    var that = this;
+    cloudinary.openUploadWidget({ cloud_name: cloud_name, upload_preset: upload_preset},
+      function(error, result) {
+          that;        var data = result[0];
+          var bikeImage = $('<img>').attr('src', data.url).addClass('bike-image')
+        that.$el.find('.bike-thumbnail').html(bikeImage);
+        that.model.set('image_url', data.url);
+      }
+    );
   },
 
   saveLoc: function() {
