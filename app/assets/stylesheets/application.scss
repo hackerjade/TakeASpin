@@ -22,7 +22,7 @@
  /* page */
  div#content {
    background-color: #EBEBEB;
-   height: 95%;
+   height: 100%;
 }
 
  div.jumbotron {
@@ -657,14 +657,15 @@ h4.rental-title {
 // bike form
 div.bike-form-show {
   position: relative;
-  height: 100%;
+  height: auto;
   width: 100%;
 }
 
 main.bike-form-details {
-  display: inline-block;
-  width: 950px;
-  margin-left: 130px;
+  float: left;
+  width: 900px;
+  padding-left: 30px;
+  background-color: #EBEBEB;
   h2.bike-form-description {
     color: #444;
     font-size: 35px;
@@ -672,7 +673,7 @@ main.bike-form-details {
 }
 
 .map.bike-form {
-  height: 283px;
+  height: 270px;
   width: 100%;
 }
 
@@ -680,7 +681,7 @@ aside.bike-form-details {
   padding-top: 28px;
   padding-left: 13px;
   width: 310px;
-  display: inline-block;
+  float: left;
   height: 100%;
   background-color: #606060;
   vertical-align: top;

@@ -10,7 +10,7 @@ window.TakeASpin.Views.BikeForm = Backbone.View.extend({
 
   initialize: function() {
     this.mapView = new window.TakeASpin.Views.MapShow({
-      collection: this.collection
+      collection: this.collection,
     });
     this.mapView.initMap(13, false);
   },
@@ -25,6 +25,7 @@ window.TakeASpin.Views.BikeForm = Backbone.View.extend({
 
     this.$el.html(content);
     this.$('.map').html(this.mapView.$el);
+    this.mapView.show();
     this.$('#slider').slider();
 
     return this;

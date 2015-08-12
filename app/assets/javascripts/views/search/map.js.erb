@@ -1,7 +1,7 @@
 window.TakeASpin.Views.MapShow = Backbone.View.extend({
   className: 'map-canvas',
 
-  initialize: function() {
+  initialize: function(options) {
     this._markers = {};
   },
 
@@ -34,6 +34,10 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
 
   closeInfoWindow: function() {
     this.infoWindow && this.infoWindow.close();
+  },
+
+  show: function() {
+    window.google.maps.event.trigger(this._map, 'resize')
   },
 
   search: function () {
@@ -78,7 +82,6 @@ window.TakeASpin.Views.MapShow = Backbone.View.extend({
       center: { lat: 37.775, lng: -122.425},
       zoom: zoom
     };
-
     this._map = new window.google.maps.Map(this.el, mapOptions);
     if (addMarkers) {
       this.collection.each(this.addMarker.bind(this));
