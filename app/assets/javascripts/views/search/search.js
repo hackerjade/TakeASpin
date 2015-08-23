@@ -13,7 +13,6 @@ window.TakeASpin.Views.SearchShowView = Backbone.View.extend({
     this.mapView = new window.TakeASpin.Views.MapShow({
       collection: this.collection
     });
-    this.mapView.initMap(15, true);
   },
 
   render: function() {
@@ -22,6 +21,7 @@ window.TakeASpin.Views.SearchShowView = Backbone.View.extend({
     this.$('.map-sidebar').html(this.ListingsIndex.$el);
     this.$('.map').html(this.mapView.$el);
     this.ListingsIndex.render();
+    this.mapView.initMap(15, true);
     return this;
   },
 

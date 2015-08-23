@@ -25,7 +25,6 @@ window.TakeASpin.Views.BikeForm = Backbone.View.extend({
 
     this.$el.html(content);
     this.$('.map').html(this.mapView.$el);
-    this.mapView.show();
     this.$('#slider').slider();
 
     return this;
@@ -38,8 +37,9 @@ window.TakeASpin.Views.BikeForm = Backbone.View.extend({
     var that = this;
     cloudinary.openUploadWidget({ cloud_name: cloud_name, upload_preset: upload_preset},
       function(error, result) {
-          that;        var data = result[0];
-          var bikeImage = $('<img>').attr('src', data.url).addClass('bike-image')
+        that;
+        var data = result[0];
+        var bikeImage = $('<img>').attr('src', data.url).addClass('bike-image')
         that.$el.find('.bike-thumbnail').html(bikeImage);
         that.model.set('image_url', data.url);
       }

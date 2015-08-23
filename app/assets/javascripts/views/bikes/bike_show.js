@@ -8,7 +8,7 @@ TakeASpin.Views.BikeShow = TakeASpin.Mixins.Dateable.extend({
     'dp.change #pickup-date': 'modReturnDate',
     'dp.change #return-date': 'modPickupDate',
     'dp.change #pickup-time': 'modReturnTime',
-    'dp.change #return-time': 'modPickupTime',
+    'dp.change #return-time': 'modPickup`Time',
     'click .rent-button': 'submitRentalForm'
   },
 
@@ -45,7 +45,6 @@ TakeASpin.Views.BikeShow = TakeASpin.Mixins.Dateable.extend({
       end_time: this.returnTime
     };
 
-    debugger;
     var newRentalRequest = new window.TakeASpin.Models.Rental({rental: data});
         Backbone.history.navigate("rentals", { trigger: true });
     // var that = this;
